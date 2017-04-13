@@ -5,12 +5,13 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 11 12:27:12 2017 AIZPURUA Victor Hugo
-** Last update Thu Apr 13 13:23:53 2017 AIZPURUA Victor Hugo
+** Last update Thu Apr 13 20:35:05 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
 #include <unistd.h>
 #include "ftl.h"
+#include <time.h>
 
 void         ftl_drive_system_repair(t_ship *ship)
 {

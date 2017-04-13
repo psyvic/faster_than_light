@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 09:50:30 2017 AIZPURUA Victor Hugo
-** Last update Thu Apr 13 17:33:48 2017 AIZPURUA Victor Hugo
+** Last update Thu Apr 13 21:53:13 2017 AIZPURUA Victor Hugo
 */
 
 #ifndef                _FTL_H_
@@ -79,6 +79,8 @@ struct                 s_matrix
 {
   t_ship               *ship;
   t_alien              *alien;
+  int                  bonus;
+  int                  combat;
 };
 typedef struct         s_matrix t_matrix;
 
@@ -128,10 +130,19 @@ void                   system_repair(t_ship *t_ship);
 / VERIFICAR SI ES T SHIP O SI ES UN T MAYOR QUE INCLUYA EL ENEMIGO /
 */
 t_matrix               *create_matrix();
+t_freight              *create_freight();
+t_alien                *create_alien(t_matrix *matrix);
 void                   check_stats(t_matrix *matrix);
 void                   system_command(t_matrix *matrix);
 void                   check_systems(t_matrix *matrix);
-void                   repair_system(t_matrix *matrix);
+void                   system_repair_main(t_matrix *matrix);
+void                   get_bonus_main(t_matrix *matrix);
+void                   jump(t_matrix *matrix);
+void                   detect(t_matrix *matrix);
+
+
+int                    random();
+
 /*
 / VERIFICAR SI ES T SHIP O SI ES UN T MAYOR QUE INCLUYA EL ENEMIGO /
 */

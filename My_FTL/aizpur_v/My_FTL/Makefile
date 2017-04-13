@@ -5,7 +5,7 @@
 ## Login   <aizpur_v@etna-alternance.net>
 ## 
 ## Started on  Sat Apr  1 07:46:15 2017 AIZPURUA Victor Hugo
-## Last update Thu Apr 13 14:31:30 2017 AIZPURUA Victor Hugo
+## Last update Thu Apr 13 18:45:35 2017 AIZPURUA Victor Hugo
 ##
 
 CC =            gcc
@@ -16,6 +16,7 @@ SRC =           air_shed.c \
 		system_control.c \
 		system_repair.c \
 		game.c  \
+		game_2.c
 
 OBJ =           $(SRC:%.c=%.o)
 CFLAGS =        -W -Wall -ansi -ansi -pedantic -L. -I.
