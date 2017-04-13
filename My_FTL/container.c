@@ -5,12 +5,13 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 19:40:35 2017 AIZPURUA Victor Hugo
-** Last update Thu Apr 13 00:08:02 2017 AIZPURUA Victor Hugo
+** Last update Thu Apr 13 20:35:13 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
 #include<unistd.h>
 #include "ftl.h"
+#include <time.h>
 
 int              add_container_to_ship(t_ship *ship)
 {
@@ -95,11 +96,11 @@ void             get_bonus(t_ship *ship)
   while (temp != NULL)
     {
       if (my_strcmp(temp->item, "attackbonus") == 0)
-	ship->weapon->damage = ship->weapon->damage + 5;
+	  ship->weapon->damage = ship->weapon->damage + 5;
       else if (my_strcmp(temp->item, "evadebonus") == 0)
-	ship->navigation_tools->evade = ship->navigation_tools->evade + 3;
+	  ship->navigation_tools->evade = ship->navigation_tools->evade + 3;
       else if (my_strcmp(temp->item, "energy") == 0)
-	ship->ftl_drive->energy = ship->ftl_drive->energy + 1;
+	  ship->ftl_drive->energy = ship->ftl_drive->energy + 1;
       del_freight_to_container(ship, temp);
       temp = temp->next;
     }

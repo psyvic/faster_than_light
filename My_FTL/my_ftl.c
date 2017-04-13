@@ -5,10 +5,11 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 10:45:31 2017 AIZPURUA Victor Hugo
-** Last update Thu Apr 13 16:45:32 2017 AIZPURUA Victor Hugo
+** Last update Thu Apr 13 21:23:29 2017 AIZPURUA Victor Hugo
 */
 
 #include "ftl.h"
+#include <unistd.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -17,7 +18,7 @@ int     main()
   t_ship *ship;
   t_matrix *matrix;
 
-  
+  /*
   t_freight *freight;
   t_freight *freight2;
   t_freight *freight3;
@@ -39,14 +40,14 @@ int     main()
 
   freight4 = malloc(sizeof(t_freight));
   freight4->item = my_strdup("energy");
-
+  */
   matrix = create_matrix();
   ship = create_ship(matrix);
   add_weapon_to_ship(ship);
   add_ftl_drive_to_ship(ship);
   add_navigation_tools_to_ship(ship);
   add_container_to_ship(ship);
-  add_freight_to_container(ship, freight);
+  /*  add_freight_to_container(ship, freight);
   add_freight_to_container(ship, freight2);
   add_freight_to_container(ship, freight3);
   add_freight_to_container(ship, freight4);
@@ -56,7 +57,7 @@ int     main()
   ftl_drive_system_repair(ship);
   navigation_tools_system_repair(ship);
   weapon_system_repair(ship);
-  system_repair(ship);
+  system_repair(ship);*/
   system_command(matrix);
   return (0);
 }

@@ -5,12 +5,13 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 10:00:18 2017 AIZPURUA Victor Hugo
-** Last update Thu Apr 13 17:10:08 2017 AIZPURUA Victor Hugo
+** Last update Thu Apr 13 20:35:18 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
 #include <unistd.h>
 #include "ftl.h"
+#include <time.h>
 
 t_matrix                 *create_matrix()
 {
