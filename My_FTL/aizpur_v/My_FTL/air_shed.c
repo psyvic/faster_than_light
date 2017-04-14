@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 10:00:18 2017 AIZPURUA Victor Hugo
-** Last update Thu Apr 13 20:35:18 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 13:08:16 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -26,6 +26,11 @@ t_matrix                 *create_matrix()
     }
   matrix->ship = NULL;
   matrix->alien = NULL;
+  matrix->bonus = 1;
+  matrix->quit = 0;
+  matrix->temp_life = 20;
+  matrix->temp_damage = 10;
+  matrix->nb_alien = 0;
   my_putstr("Game mechanics created succesfully!\n");
   return (matrix);
 }
@@ -72,7 +77,7 @@ int                    add_ftl_drive_to_ship(t_ship *ship)
   t_ftl_drive          *ftl_drive;
 
   my_putstr("Adding reactor...\n");
-  if ((ftl_drive = malloc(sizeof(ftl_drive))) == NULL)
+  if ((ftl_drive = malloc(sizeof(t_ftl_drive))) == NULL)
     {
       my_putstr("Your ship exploded its ass off trying to add the reactor!\n");
       return (0);
@@ -89,7 +94,7 @@ int                    add_navigation_tools_to_ship(t_ship *ship)
   t_navigation_tools   *navigation_tools;
 
   my_putstr("Adding navigation tools...\n");
-  navigation_tools = malloc(sizeof(navigation_tools));
+  navigation_tools = malloc(sizeof(t_navigation_tools));
   if (navigation_tools == NULL)
     {
       my_putstr("Your ship exploded trying to add the navigation tools!\n");
