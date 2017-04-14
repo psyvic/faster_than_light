@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 19:40:35 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 21:06:18 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 00:54:24 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -65,7 +65,7 @@ void             get_bonus(t_ship *ship)
 {
   t_freight      *temp;
 
-  my_putstr("Applying bonuses from remnants\n");
+  my_putstr("\033[33mApplying bonuses from remnants\n");
   temp = ship->container->first;
   sleep(1);
   bonus_prob(ship, temp);

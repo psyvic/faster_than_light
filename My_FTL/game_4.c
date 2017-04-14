@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Apr 14 11:50:47 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 21:29:07 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 00:34:15 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -52,12 +52,13 @@ my_putstr("Thank you for playing!\n");
 
 void           spaceship()
 {
+  my_putstr("\033[31m");
   my_putstr("##########################################################\n");
   my_putstr("#                                                        #\n");
   my_putstr("#                         FTL DRIVE                      #\n");
   my_putstr("#                                                        #\n");
   my_putstr("##########################################################\n");
-  my_putstr("\n\n\n");
+  my_putstr("\033[33m");
   my_putstr("[By Victor Hugo]        ___\\____\n");
   my_putstr("[ver. 1.0]             0)__/... \\_\n");
   my_putstr("                      00)__)  .___)\n");
@@ -70,7 +71,7 @@ void           spaceship()
   my_putstr("          L_L                 / /\n");
   my_putstr("         0) ^'-.__            |_|\n");
   my_putstr("         0)__.-'             0) ^'-.__\n");
-  my_putstr("                             0)__.-'\n");
+  my_putstr("                             0)__.-'\n\033[0m");
 }
 
 void           prob_alien(t_matrix *matrix, t_alien *alien)
@@ -89,7 +90,9 @@ void           prob_alien(t_matrix *matrix, t_alien *alien)
       matrix->temp_life = alien->life;
       matrix->temp_damage = alien->damage;
     }
-  my_putstr("ALLERT! CODE RED! Hostile life form detected!\nAll systems");
-  my_putstr(" disabled! Engaging attack mode!\n");
-  my_putstr("A meanie alien has appeared!!!!!\n");
+  my_putstr("\033[31mALLERT! CODE RED! Hostile life form detected!\n");
+  sleep(1);
+  my_putstr("All systems disabled! Engaging attack mode!\n");
+  sleep(1);
+  my_putstr("A meanie alien has appeared!!!!!\n\033[0m");
 }
