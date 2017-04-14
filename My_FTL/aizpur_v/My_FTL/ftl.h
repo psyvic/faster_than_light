@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 09:50:30 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 21:33:22 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 22:09:52 2017 AIZPURUA Victor Hugo
 */
 
 #ifndef                _FTL_H_
@@ -145,7 +145,9 @@ void                   the_end();
 void                   finish(t_matrix *matrix);
 void                   spaceship();
 void                   help();
-void                   interface();
+void                   interface(t_matrix *matrix);
+void                   monsterface(t_matrix *matrix);
+void                   stats(t_matrix *matrix);
 void                   del_prob(t_ship *ship, t_freight *freight);
 void	               prob_alien(t_matrix *matrix, t_alien *alien);
 void                   random_break(t_matrix *matrix);

@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 10:45:31 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 21:33:58 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 21:42:06 2017 AIZPURUA Victor Hugo
 */
 
 #include <unistd.h>
@@ -27,7 +27,7 @@ int     main()
 	 matrix->ship->navigation_tools->sector < 10) && matrix->quit != 1)
     {
       my_putstr("\033[H\033[2J");
-      interface();
+      interface(matrix);
       system_command(matrix);
       sleep(2);
     }
