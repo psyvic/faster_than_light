@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 09:50:30 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 13:16:31 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 18:23:05 2017 AIZPURUA Victor Hugo
 */
 
 #ifndef                _FTL_H_
@@ -66,8 +66,6 @@ struct                 s_repair_command
 };
 typedef struct         s_repair_command t_repair_command;
 
-/*/// 2da parte exo ////////////////////////*/
-
 struct                 s_alien
 {
   int                  life;
@@ -93,20 +91,17 @@ struct                 s_demand
   void                 (*f)(t_matrix *matrix);
 };
 typedef struct         s_demand t_demand;
-/*
-/ IMPORTANTE, CHEQUEAR SI HAGO UNA NUEVA STRUCT QUE INCLUYE SHIP Y MONSTER /
-*/
+
 struct                 s_main
 {
   char                 *ordre;
   void                 (*f)(t_ship *ship);
 };
 typedef struct	       s_main t_main;
-/*
-/ IMPORTANTE, CHEQUEAR SI HAGO UNA NUEVA STRUCT QUE INCLUYE SHIP Y MONSTER /
-*/
+
 void                   my_putchar(char c);
 void                   my_putstr(char *str);
+void                   my_putstr_color(const char *color, const char *str);
 int                    my_strcmp(char *s1, char *s2);
 void                   my_put_nbr(int n);
 char                   *my_strdup(const char *str);
@@ -116,8 +111,11 @@ int                    add_weapon_to_ship(t_ship *ship);
 int                    add_navigation_tools_to_ship(t_ship *ship);
 int                    add_ftl_drive_to_ship(t_ship *ship);
 int                    add_container_to_ship(t_ship *ship);
-void                   add_freight_to_container(t_ship *ship, t_freight *freight);
-void                   del_freight_to_container(t_ship *ship, t_freight *freight);
+void                   add_freight_to_container(t_ship *ship,
+						t_freight *freight);
+void                   del_freight_to_container(t_ship *ship,
+						t_freight *freight);
+void                   del_prob(t_ship *ship, t_freight *freight);
 void                   get_bonus(t_ship *ship);
 void                   ftl_drive_system_check(t_ship *ship);
 void                   navigation_tools_system_check(t_ship *ship);
@@ -128,10 +126,6 @@ void                   navigation_tools_system_repair(t_ship *t_ship);
 void                   weapon_system_repair(t_ship *t_ship);
 void                   system_repair(t_ship *t_ship);
 
-
-/*
-/ VERIFICAR SI ES T SHIP O SI ES UN T MAYOR QUE INCLUYA EL ENEMIGO /
-*/
 t_matrix               *create_matrix();
 t_freight              *create_freight();
 t_alien                *create_alien(t_matrix *matrix);
@@ -143,8 +137,6 @@ void                   get_bonus_main(t_matrix *matrix);
 void                   jump(t_matrix *matrix);
 void                   detect(t_matrix *matrix);
 void                   attack(t_matrix *matrix);
-
-
 int                    random_number();
 int                    random_number_three();
 void                   delete_alien(t_matrix *matrix);
@@ -152,7 +144,8 @@ void                   system_break(t_matrix *matrix);
 void                   endgame(t_matrix *matrix);
 void                   the_end();
 void                   exit_game(t_matrix *matrix);
-/*
-/ VERIFICAR SI ES T SHIP O SI ES UN T MAYOR QUE INCLUYA EL ENEMIGO /
-*/
+void                   spaceship();
+void                   del_prob(t_ship *ship, t_freight *freight);
+void	               prob_alien(t_matrix *matrix, t_alien *alien);
+void                   random_break(t_matrix *matrix);
 #endif

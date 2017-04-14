@@ -5,13 +5,13 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 11 12:27:12 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 09:28:50 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 18:23:43 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "ftl.h"
 #include <time.h>
+#include "ftl.h"
 
 void         ftl_drive_system_repair(t_ship *ship)
 {
@@ -21,7 +21,6 @@ void         ftl_drive_system_repair(t_ship *ship)
     my_putstr("The reactor has been repaired!\n");
   else
     my_putstr("Reactor reparations failed!\n");
-  
 }
 
 void         navigation_tools_system_repair(t_ship *ship)
@@ -44,7 +43,7 @@ void         weapon_system_repair(t_ship *ship)
     my_putstr("Weapons system reparations failed!\n");
 }
 
-static const t_repair_command g_repair_command[] = {
+static const t_repair_command	g_repair_command[] = {
   {"ftl_drive", &ftl_drive_system_repair},
   {"navigation_tools", &navigation_tools_system_repair},
   {"weapon", &weapon_system_repair},
@@ -79,7 +78,7 @@ void         system_repair(t_ship *ship)
 	      i = i + 1;
 	    }
 	  if (bool == 0)
-	    my_putstr("[SYSTEM_FAILURE] Unknown command! \n"); 
+	    my_putstr("[SYSTEM_FAILURE] Unknown command! \n");
 	}
       free(command);
     }
