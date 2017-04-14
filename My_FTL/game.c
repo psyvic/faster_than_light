@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 14:31:14 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 10:04:26 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 14:27:17 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -21,20 +21,19 @@ static const t_demand g_demand[] = {
   {"repair_system", &system_repair_main},
   {"control_system", &check_systems},
   {"stat", &check_stats},
+  {"exit",&exit_game},
   {NULL, NULL}
 };
 
 void    check_systems(t_matrix *matrix)
 {
   system_control(matrix->ship);
-  system_command(matrix);
 }
 
 void    system_repair_main(t_matrix *matrix)
 {
   my_putstr("Entering the System Repair Unit(SRU):\n");
   system_repair(matrix->ship);
-  system_command(matrix);
 }
 
 void    get_bonus_main(t_matrix *matrix)
@@ -45,7 +44,6 @@ void    get_bonus_main(t_matrix *matrix)
     my_putstr("There are no elements in your container to make a bonus\n");
   else
     get_bonus(matrix->ship);
-  system_command(matrix);
 }
 
 void    check_stats(t_matrix *matrix)
@@ -66,7 +64,6 @@ void    check_stats(t_matrix *matrix)
   my_put_nbr(matrix->ship->navigation_tools->sector);
   my_putstr("\n");
     }
-  system_command(matrix);
 }
 
 void         system_command(t_matrix *matrix)

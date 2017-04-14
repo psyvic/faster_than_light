@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 18:28:03 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 09:51:18 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 14:14:06 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -32,10 +32,11 @@ void     jump(t_matrix *matrix)
   my_put_nbr(matrix->ship->navigation_tools->sector);
   my_putstr("!\n");
   matrix->ship->ftl_drive->energy = matrix->ship->ftl_drive->energy - 1;
+  matrix->bonus = 1;
+  endgame(matrix);
   if ((random = random_number()) <= 30)
     create_alien(matrix);
     }
-  system_command(matrix);
 }
 
 int        random_number()
@@ -75,6 +76,8 @@ void        detect(t_matrix *matrix)
     my_putstr("Detect disabled. Start attacking you woos!\n");
   else if (matrix->ship->navigation_tools->system_state == NULL)
     my_putstr("Navigation system damaged! Need reparation before detect!\n");
+  else if (matrix->bonus == 0)
+    my_putstr("There are no more remnants on this sector\n");
   else
     {
       my_putstr("Locating ship remnants in space...\n10 remnants located!\n");
@@ -87,8 +90,8 @@ void        detect(t_matrix *matrix)
       my_putstr("Remnants recovery completed! You have now ");
       my_put_nbr(matrix->ship->container->nb_elem);
       my_putstr(" remmants\n");
+      matrix->bonus = 0;
     }
-  system_command(matrix);
 }
 
 t_alien     *create_alien(t_matrix *matrix)
@@ -98,13 +101,23 @@ t_alien     *create_alien(t_matrix *matrix)
   alien = malloc(sizeof(t_alien));
   if (alien == NULL)
     {
-      my_putstr("Error detecting hostile life forms");
+      my_putstr("Error detecting hostile life forms\n");
       return(NULL);
     }
   matrix->alien = alien;
-  matrix->combat = 1;
-  alien->life = 20;
-  alien->damage = 10;
+  if (matrix->nb_alien == 0)
+    {
+      alien->life = 20;
+      alien->damage = 10;
+      matrix->nb_alien = matrix->nb_alien + 1;
+    }
+  else
+    {
+      alien->life = (matrix->temp_life * 1.5);
+      alien->damage = (matrix->temp_damage * 1.5);
+      matrix->temp_life = alien->life;
+      matrix->temp_damage = alien->damage;
+    }
   my_putstr("ALLERT! CODE RED! Hostile life form detected!\nAll systems");
   my_putstr(" disabled! Engaging attack mode!\n");
   my_putstr("A meanie alien has appeared!!!!!\n");

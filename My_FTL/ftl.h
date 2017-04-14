@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 09:50:30 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 02:14:22 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 13:16:31 2017 AIZPURUA Victor Hugo
 */
 
 #ifndef                _FTL_H_
@@ -80,7 +80,10 @@ struct                 s_matrix
   t_ship               *ship;
   t_alien              *alien;
   int                  bonus;
-  int                  combat;
+  int                  nb_alien;
+  int                  temp_life;
+  int                  temp_damage;
+  int                  quit;
 };
 typedef struct         s_matrix t_matrix;
 
@@ -143,9 +146,12 @@ void                   attack(t_matrix *matrix);
 
 
 int                    random_number();
-int                    random_number_3();
+int                    random_number_three();
 void                   delete_alien(t_matrix *matrix);
 void                   system_break(t_matrix *matrix);
+void                   endgame(t_matrix *matrix);
+void                   the_end();
+void                   exit_game(t_matrix *matrix);
 /*
 / VERIFICAR SI ES T SHIP O SI ES UN T MAYOR QUE INCLUYA EL ENEMIGO /
 */
