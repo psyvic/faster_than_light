@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 14:31:14 2017 AIZPURUA Victor Hugo
-** Last update Thu Apr 13 21:14:10 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 10:04:26 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -14,7 +14,7 @@
 #include <time.h>
 
 static const t_demand g_demand[] = {
-  /*  {"attack", &},*/
+  {"attack", &attack},
   {"detect", &detect},
   {"jump", &jump},
   {"get_bonus", &get_bonus_main},
@@ -27,35 +27,36 @@ static const t_demand g_demand[] = {
 void    check_systems(t_matrix *matrix)
 {
   system_control(matrix->ship);
-  /*
-  my_putstr ("Checking ship systems status:\n Reactor FTL Drive system: ");
-  my_putstr(matrix->ship->weapon->system_state);
-  my_putstr ("\n Weapons system: ");
-  my_putstr(matrix->ship->ftl_drive->system_state);
-  my_putstr ("\n Navigation tools system: ");
-  my_putstr(matrix->ship->navigation_tools->system_state);
-  my_putstr("\n");*/
+  system_command(matrix);
 }
 
 void    system_repair_main(t_matrix *matrix)
 {
   my_putstr("Entering the System Repair Unit(SRU):\n");
-  system_repair(matrix->ship);  
+  system_repair(matrix->ship);
+  system_command(matrix);
 }
 
 void    get_bonus_main(t_matrix *matrix)
 {
-  if (matrix->ship->container->nb_elem == 0)
-    my_putstr("There are no elements in your container to make a bonus");
+  if (matrix->alien != NULL)
+    my_putstr("Get bonus disabled. Start attacking you woos!\n");
+  else if (matrix->ship->container->nb_elem == 0)
+    my_putstr("There are no elements in your container to make a bonus\n");
   else
     get_bonus(matrix->ship);
+  system_command(matrix);
 }
 
 void    check_stats(t_matrix *matrix)
 {
+  if (matrix->alien != NULL)
+    my_putstr("Stat checks disabled. Start attacking you woos!\n");
+  else
+    {
   my_putstr ("Checking ship stats:\nHull Proton Shield: ");
   my_put_nbr(matrix->ship->hull);
-  my_putstr("\nTime-Space Warp-Energy: ");
+  my_putstr("\nTime-Space Hyper-Jump Energy: ");
   my_put_nbr(matrix->ship->ftl_drive->energy);
   my_putstr("\nMacro Cromosomic Void Energy Cannons: ");
   my_put_nbr(matrix->ship->weapon->damage);
@@ -64,6 +65,8 @@ void    check_stats(t_matrix *matrix)
   my_putstr("\nMultiverse Navigation UPS System: Sector ");
   my_put_nbr(matrix->ship->navigation_tools->sector);
   my_putstr("\n");
+    }
+  system_command(matrix);
 }
 
 void         system_command(t_matrix *matrix)
