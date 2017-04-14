@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 18:28:03 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr 15 00:42:21 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 01:12:05 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -27,6 +27,7 @@ void            jump(t_matrix *matrix)
   my_put_nbr(matrix->ship->navigation_tools->sector);
   my_putstr(" to Sector");
   suspense();
+  hyperspace();
   matrix->ship->navigation_tools->sector ++;
   my_put_nbr(matrix->ship->navigation_tools->sector);
   my_putstr("!\n\033[32mYou have landed on Sector ");

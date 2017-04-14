@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Apr 14 21:31:17 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr 15 00:05:26 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 01:30:50 2017 AIZPURUA Victor Hugo
 */
 
 #include <unistd.h>
@@ -108,22 +108,22 @@ void    monsterface(t_matrix *matrix)
     {
       my_putstr("\033[32m");
       my_putstr("   _                      _______                      _\n");
-      my_putstr("_dMMMb._              .adOOOOOOOOOba.              _,dMMMb_\n");
-      my_putstr("P'  ~YMMb            dOOOOOOOOOOOOOOOb            aMMP~ `Yb\n");
-      my_putstr("      ~\"Mb          dOOOOOOOOOOOOOOOOOb          dM\"~   V\n");
+      my_putstr("_dMMMb._              .adOOOOOOOOOba.              _,dMMM\n");
+      my_putstr("P'  ~YMMb            dOOOOOOOOOOOOOOOb            aMMP~ `\n");
+      my_putstr("      ~\"Mb          dOOOOOOOOOOOOOOOOOb          dM\"~  \n");
       my_putstr("        `Mb.       dOOOOOOOOOOOOOOOOOOOb       ,dM'\n");
       my_putstr("         `YMb._   |OOOOOOOOOOOOOOOOOOOOO|   _,dMP'\n");
       my_putstr("    __     `YMMM| OP'~\"YOOOOOOOOOOOP\"~`YO |MMMP'     __\n");
       my_putstr("  ,dMMMb.     ~~' OO     `YOOOOOP'     OO `~~     ,dMMMb.\n");
-      my_putstr(",dP~  `YMba_      OOb      `OOO'      dOO      _aMMP'  ~Yb.\n");
-      my_putstr("MP'     `~YMMa_   YOOo   @  OOO  @   oOOP   _adMP~'      `Y\n");
+      my_putstr(",dP~  `YMba_      OOb      `OOO'      dOO      _aMMP'  ~Y\n");
+      my_putstr("MP'     `~YMMa_   YOOo   @  OOO  @   oOOP   _adMP~'      \n");
       my_putstr("           `YMMMM\\`OOOo     OOO     oOOO'/MMMMP'\n");
       my_putstr("   ,aa.     `~YMMb `OOOb._,dOOOb._,dOOO'dMMP~'       ,aa.\n");
-      my_putstr(" ,dMYYMba._         `OOOOOOOOOOOOOOOOO'          _,adMYYMb.\n");
-      my_putstr(",MP'   `YMMba._      OOOOOOOOOOOOOOOOO       _,adMMP'   `YM\n");
-      my_putstr("MP'        ~YMMMba._ YOOOOPVVVVVYOOOOP  _,adMMMMP~       `Y\n");
-      my_putstr("YMb           ~YMMMM` OOOOI`````IOOOO'/MMMMP~           dMP\n");
-      my_putstr(" `Mb.           `YMMMb`OOOI,,,,,IOOOO'dMMMP'           ,dM'\n");
+      my_putstr(" ,dMYYMba._         `OOOOOOOOOOOOOOOOO'          _,adMYYM\n");
+      my_putstr(",MP'   `YMMba._      OOOOOOOOOOOOOOOOO       _,adMMP'   `\n");
+      my_putstr("MP'        ~YMMMba._ YOOOOPVVVVVYOOOOP  _,adMMMMP~       \n");
+      my_putstr("YMb           ~YMMMM` OOOOI`````IOOOO'/MMMMP~           d\n");
+      my_putstr(" `Mb.           `YMMMb`OOOI,,,,,IOOOO'dMMMP'           ,d\n");
       my_putstr("   `'                  `OObNNNNNdOO'                   `'\n");
       my_putstr("                         `~OOOOO~'   \033[0m\n\n");
     }

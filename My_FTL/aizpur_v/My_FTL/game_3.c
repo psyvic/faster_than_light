@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 21:58:01 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr 15 00:38:24 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 01:34:57 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -76,7 +76,6 @@ int     random_number_three()
   random = (rand()% 3) + 1;
   return (random);
 }
-
 
 void   endgame(t_matrix *matrix)
 {
