@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Apr 14 15:37:55 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 17:49:30 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 21:29:59 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -36,4 +36,65 @@ void    random_break(t_matrix *matrix)
       free (matrix->ship->ftl_drive->system_state);
       matrix->ship->ftl_drive->system_state = NULL;
     }
+}
+
+void    suspense()
+{
+  my_putstr(".");
+  sleep(1);
+  my_putstr(".");
+  sleep(1);
+  my_putstr(".");
+  sleep(1);
+  my_putstr("\n");
+}
+
+void    bonus_prob(t_ship *ship, t_freight *temp)
+{
+  while (temp != NULL)
+    {
+      if (my_strcmp(temp->item, "attackbonus") == 0)
+	{
+	  ship->weapon->damage = ship->weapon->damage + 5;
+	  my_putstr("     Attack Bonus (+5)");
+	}
+      else if (my_strcmp(temp->item, "evadebonus") == 0)
+	{
+	  ship->navigation_tools->evade = ship->navigation_tools->evade + 3;
+	  my_putstr("     Evade Bonus (+3)");
+	}
+      else if (my_strcmp(temp->item, "energy") == 0)
+	{
+	  ship->ftl_drive->energy = ship->ftl_drive->energy + 1;
+	  my_putstr("     Energy Bonus (+1)");
+	}
+      else
+	my_putstr("       Nothing sucker!");
+      sleep(1);
+      del_freight_to_container(ship, temp);
+      temp = temp->next;
+    }
+}
+
+void    matrix_var(t_matrix *matrix)
+{
+  matrix->ship = NULL;
+  matrix->alien = NULL;
+  matrix->bonus = 1;
+  matrix->quit = 0;
+  matrix->temp_life = 20;
+  matrix->temp_damage = 10;
+  matrix->nb_alien = 0;
+}
+
+void    help()
+{
+  my_putstr("##############################################################\n");
+  my_putstr("#                                                            #\n");
+  my_putstr("#     attack                         jump                    #\n");
+  my_putstr("#                    detect                    get_bonus     #\n");
+  my_putstr("#     repair_system           control_system                 #\n");
+  my_putstr("#                     stat                        finish     #\n");
+  my_putstr("#                                                            #\n");
+  my_putstr("##############################################################\n");
 }

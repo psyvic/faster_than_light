@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 21:58:01 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 18:23:00 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 21:28:40 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -75,20 +75,17 @@ int     random_number_three()
   return (random);
 }
 
+
 void   endgame(t_matrix *matrix)
 {
   if (matrix->ship->hull <= 0)
     {
       my_putstr("Your ship was destroyed! You are a shame to the galaxy!\n");
       my_putstr("The aliens devoured the human race! Have fun in HELL!\n");
-      exit_game(matrix);
-      the_end();
     }
   else if (matrix->ship->navigation_tools->sector == 10)
     {
       my_putstr("You have reached sector 10 safe and sound! You rock!\n");
       my_putstr("You saved mankind! Go have a beer and get laid!\n");
-      exit_game(matrix);
-      the_end();
     }
 }

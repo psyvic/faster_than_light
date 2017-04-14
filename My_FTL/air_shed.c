@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 10:00:18 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 13:08:16 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 21:33:33 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -16,6 +16,7 @@
 t_matrix                 *create_matrix()
 {
   t_matrix               *matrix;
+  t_ship                 *ship;
 
   my_putstr("CREATING GAME PARAMETERS...\n");
   matrix = malloc(sizeof(t_matrix));
@@ -24,14 +25,13 @@ t_matrix                 *create_matrix()
       my_putstr("Error creating game parameters\n");
       return (NULL);
     }
-  matrix->ship = NULL;
-  matrix->alien = NULL;
-  matrix->bonus = 1;
-  matrix->quit = 0;
-  matrix->temp_life = 20;
-  matrix->temp_damage = 10;
-  matrix->nb_alien = 0;
+  matrix_var(matrix);
   my_putstr("Game mechanics created succesfully!\n");
+  ship = create_ship(matrix);
+  add_weapon_to_ship(ship);
+  add_ftl_drive_to_ship(ship);
+  add_navigation_tools_to_ship(ship);
+  add_container_to_ship(ship);
   return (matrix);
 }
 
@@ -39,7 +39,8 @@ t_ship                 *create_ship(t_matrix *matrix)
 {
   t_ship               *ship;
 
-  my_putstr("Building ship...\n");
+  my_putstr("Building ship");
+  suspense();
   ship = malloc(sizeof(t_ship));
   if (ship == NULL)
     {
@@ -58,7 +59,8 @@ int                    add_weapon_to_ship(t_ship *ship)
 {
   t_weapon             *weapon;
   
-  my_putstr("Adding weapons...\n");
+  my_putstr("Adding weapons");
+  suspense();
   weapon = malloc(sizeof(t_weapon));
   if (weapon == NULL)
     {
@@ -76,7 +78,8 @@ int                    add_ftl_drive_to_ship(t_ship *ship)
 {
   t_ftl_drive          *ftl_drive;
 
-  my_putstr("Adding reactor...\n");
+  my_putstr("Adding reactor");
+  suspense();
   if ((ftl_drive = malloc(sizeof(t_ftl_drive))) == NULL)
     {
       my_putstr("Your ship exploded its ass off trying to add the reactor!\n");
@@ -93,7 +96,8 @@ int                    add_navigation_tools_to_ship(t_ship *ship)
 {
   t_navigation_tools   *navigation_tools;
 
-  my_putstr("Adding navigation tools...\n");
+  my_putstr("Adding navigation tools");
+  suspense();
   navigation_tools = malloc(sizeof(t_navigation_tools));
   if (navigation_tools == NULL)
     {

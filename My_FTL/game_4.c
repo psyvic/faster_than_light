@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Apr 14 11:50:47 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 18:03:32 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 21:29:07 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -39,7 +39,7 @@ void             del_prob(t_ship *ship, t_freight *freight)
     }
 }
 
-void           exit_game(t_matrix *matrix)
+void           finish(t_matrix *matrix)
 {
   my_putstr("Exiting game\n");
   matrix->quit = 1;
@@ -47,7 +47,7 @@ void           exit_game(t_matrix *matrix)
 
 void           the_end()
 {
-  my_putstr("Thank you for playing!\n");
+my_putstr("Thank you for playing!\n");
 }
 
 void           spaceship()
