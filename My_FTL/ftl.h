@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 09:50:30 2017 AIZPURUA Victor Hugo
-** Last update Thu Apr 13 21:53:13 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 02:14:22 2017 AIZPURUA Victor Hugo
 */
 
 #ifndef                _FTL_H_
@@ -139,10 +139,13 @@ void                   system_repair_main(t_matrix *matrix);
 void                   get_bonus_main(t_matrix *matrix);
 void                   jump(t_matrix *matrix);
 void                   detect(t_matrix *matrix);
+void                   attack(t_matrix *matrix);
 
 
-int                    random();
-
+int                    random_number();
+int                    random_number_3();
+void                   delete_alien(t_matrix *matrix);
+void                   system_break(t_matrix *matrix);
 /*
 / VERIFICAR SI ES T SHIP O SI ES UN T MAYOR QUE INCLUYA EL ENEMIGO /
 */
