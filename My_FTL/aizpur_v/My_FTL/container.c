@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 19:40:35 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 18:17:45 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 21:06:18 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -17,7 +17,8 @@ int              add_container_to_ship(t_ship *ship)
 {
   t_container    *container;
 
-  my_putstr("Adding containers...\n");
+  my_putstr("Adding containers");
+  suspense();
   container = malloc(sizeof(t_container));
   if (container == NULL)
     {
@@ -66,18 +67,9 @@ void             get_bonus(t_ship *ship)
 
   my_putstr("Applying bonuses from remnants\n");
   temp = ship->container->first;
-  while (temp != NULL)
-    {
-      if (my_strcmp(temp->item, "attackbonus") == 0)
-	  ship->weapon->damage = ship->weapon->damage + 5;
-      else if (my_strcmp(temp->item, "evadebonus") == 0)
-	  ship->navigation_tools->evade = ship->navigation_tools->evade + 3;
-      else if (my_strcmp(temp->item, "energy") == 0)
-	  ship->ftl_drive->energy = ship->ftl_drive->energy + 1;
-      del_freight_to_container(ship, temp);
-      temp = temp->next;
-    }
-  my_putstr("Now you have:\nAttack:");
+  sleep(1);
+  bonus_prob(ship, temp);
+  my_putstr("\n\n\nNow you have:\nAttack:");
   my_put_nbr(ship->weapon->damage);
   my_putstr("\nEvade:");
   my_put_nbr(ship->navigation_tools->evade);

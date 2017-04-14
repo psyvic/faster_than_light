@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 14:31:14 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 18:23:38 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 20:32:34 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -21,7 +21,7 @@ static const t_demand	g_demand[] = {
   {"repair_system", &system_repair_main},
   {"control_system", &check_systems},
   {"stat", &check_stats},
-  {"exit",&exit_game},
+  {"finish", &finish},
   {NULL, NULL}
 };
 
