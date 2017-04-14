@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 18:28:03 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 20:36:56 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 00:42:21 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -20,17 +20,18 @@ void            jump(t_matrix *matrix)
   if (matrix->alien != NULL)
     my_putstr("Time-Space Hyper-Jump disabled. Start attacking you woos!\n");
   else if (matrix->ship->ftl_drive->system_state == NULL)
-    my_putstr("Reactor system damaged! Need reparation before jump!\n");
+    my_putstr("\033[31mReactor system damaged! Need reparation!\033[0m\n");
   else
     {
-  my_putstr("Initiating Time-Space Hyper-Jump from Sector ");
+  my_putstr("\033[34mInitiating Time-Space Hyper-Jump from Sector ");
   my_put_nbr(matrix->ship->navigation_tools->sector);
-  my_putstr(" to Sector ");
+  my_putstr(" to Sector");
+  suspense();
   matrix->ship->navigation_tools->sector ++;
   my_put_nbr(matrix->ship->navigation_tools->sector);
-  my_putstr("!\nYou have landed on Sector ");
+  my_putstr("!\n\033[32mYou have landed on Sector ");
   my_put_nbr(matrix->ship->navigation_tools->sector);
-  my_putstr("!\n");
+  my_putstr("!\n\033[0m");
   matrix->ship->ftl_drive->energy = matrix->ship->ftl_drive->energy - 1;
   matrix->bonus = 1;
   endgame(matrix);
@@ -74,13 +75,15 @@ void            detect(t_matrix *matrix)
   if (matrix->alien != NULL)
     my_putstr("Detect disabled. Start attacking you woos!\n");
   else if (matrix->ship->navigation_tools->system_state == NULL)
-    my_putstr("Navigation system damaged! Need reparation before detect!\n");
+    my_putstr("\033[31mNavigation system damaged! Need reparation\033[0m!\n");
   else if (matrix->bonus == 0)
     my_putstr("There are no more remnants on this sector\n");
   else
     {
-      my_putstr("Locating ship remnants in space...\n10 remnants located!\n");
-      my_putstr("Recovering remnats...");
+      my_putstr("\033[34mLocating ship remnants in space");
+      suspense();
+      my_putstr("10 remnants located!\nRecovering remnats");
+      suspense();
       while (i < 10)
 	{
 	  add_freight_to_container(matrix->ship, create_freight(matrix));
@@ -88,7 +91,7 @@ void            detect(t_matrix *matrix)
 	}
       my_putstr("Remnants recovery completed! You have now ");
       my_put_nbr(matrix->ship->container->nb_elem);
-      my_putstr(" remmants\n");
+      my_putstr(" remmants\n\033[0");
       matrix->bonus = 0;
     }
 }
@@ -103,6 +106,7 @@ t_alien         *create_alien(t_matrix *matrix)
       my_putstr("Error detecting hostile life forms\n");
       return (NULL);
     }
+  sleep(2);
   prob_alien(matrix, alien);
   return (alien);
 }

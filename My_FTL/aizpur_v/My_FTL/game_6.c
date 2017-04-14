@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Apr 14 21:31:17 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 23:53:52 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 00:05:26 2017 AIZPURUA Victor Hugo
 */
 
 #include <unistd.h>
@@ -20,6 +20,7 @@ void    interface(t_matrix *matrix)
   stats_two(matrix);
   monster_stats(matrix);
   monsterface(matrix);
+  sector(matrix);
   help();
 }
 

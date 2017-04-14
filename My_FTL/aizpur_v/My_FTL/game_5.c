@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Apr 14 15:37:55 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 21:29:59 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 00:56:59 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -56,20 +56,20 @@ void    bonus_prob(t_ship *ship, t_freight *temp)
       if (my_strcmp(temp->item, "attackbonus") == 0)
 	{
 	  ship->weapon->damage = ship->weapon->damage + 5;
-	  my_putstr("     Attack Bonus (+5)");
+	  my_putstr("\033[36m     Attack Bonus (+5)\033[0m");
 	}
-      else if (my_strcmp(temp->item, "evadebonus") == 0)
+      else if (my_strcmp(temp->item, "evadebonus\033[0m") == 0)
 	{
 	  ship->navigation_tools->evade = ship->navigation_tools->evade + 3;
-	  my_putstr("     Evade Bonus (+3)");
+	  my_putstr("\033[34m     Evade Bonus (+3)\033[0m");
 	}
       else if (my_strcmp(temp->item, "energy") == 0)
 	{
 	  ship->ftl_drive->energy = ship->ftl_drive->energy + 1;
-	  my_putstr("     Energy Bonus (+1)");
+	  my_putstr("\033[32m     Energy Bonus (+1)\033[0m");
 	}
       else
-	my_putstr("       Nothing sucker!");
+	my_putstr("\033[31m       Nothing sucker!\033[0m");
       sleep(1);
       del_freight_to_container(ship, temp);
       temp = temp->next;
@@ -89,6 +89,7 @@ void    matrix_var(t_matrix *matrix)
 
 void    help()
 {
+  my_putstr("\033[34m");
   my_putstr("##############################################################\n");
   my_putstr("#                                                            #\n");
   my_putstr("#     attack                         jump                    #\n");
@@ -97,4 +98,5 @@ void    help()
   my_putstr("#                     stat                        finish     #\n");
   my_putstr("#                                                            #\n");
   my_putstr("##############################################################\n");
+  my_putstr("\033[0m");
 }

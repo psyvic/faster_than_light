@@ -5,10 +5,22 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Apr 14 23:55:38 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 23:56:27 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 00:57:49 2017 AIZPURUA Victor Hugo
 */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <time.h>
 #include "ftl.h"
+
+void    sector(t_matrix *matrix)
+{
+  my_putstr("\033[32m");
+  my_putstr("##############################################################\n");
+  my_putstr("#                                                            #\n");
+  my_putstr("#                       SECTOR N. ");
+  my_put_nbr(matrix->ship->navigation_tools->sector);
+  my_putstr("                          #\n");
+  my_putstr("#                                                            #\n");
+  my_putstr("\033[34m");
+}

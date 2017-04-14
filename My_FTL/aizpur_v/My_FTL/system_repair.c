@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 11 12:27:12 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 18:23:43 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 00:50:46 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -15,32 +15,35 @@
 
 void         ftl_drive_system_repair(t_ship *ship)
 {
-  my_putstr("Reparing reactor...\n");
+  my_putstr("\033[33mReparing reactor");
+  suspense();
   free(ship->ftl_drive->system_state);
   if ((ship->ftl_drive->system_state = my_strdup("online")))
-    my_putstr("The reactor has been repaired!\n");
+    my_putstr("\033[34mThe reactor has been repaired!\n");
   else
-    my_putstr("Reactor reparations failed!\n");
+    my_putstr("\033[31mReactor reparations failed!\n");
 }
 
 void         navigation_tools_system_repair(t_ship *ship)
 {
-  my_putstr("Reparing navigation tools...\n");
+  my_putstr("\033[33mReparing navigation tools");
+  suspense();
   free(ship->navigation_tools->system_state);
   if ((ship->navigation_tools->system_state = my_strdup("online")))
-    my_putstr("The navigation tools have been repaired!\n");
+    my_putstr("\033[34mThe navigation tools have been repaired!\n");
   else
-    my_putstr("Navigation tools reparations failed!\n");
+    my_putstr("\033[31mNavigation tools reparations failed!\n");
 }
 
 void         weapon_system_repair(t_ship *ship)
 {
-  my_putstr("Reparing weapons system...\n");
+  my_putstr("\033[33mReparing weapons system");
+  suspense();
   free(ship->weapon->system_state);
   if ((ship->weapon->system_state = my_strdup("online")))
-    my_putstr("The weapons system has been repaired!\n");
+    my_putstr("\033[34mThe weapons system has been repaired!\n");
   else
-    my_putstr("Weapons system reparations failed!\n");
+    my_putstr("\033[31mWeapons system reparations failed!\n");
 }
 
 static const t_repair_command	g_repair_command[] = {
