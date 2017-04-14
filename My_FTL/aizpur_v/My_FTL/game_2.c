@@ -5,18 +5,18 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 18:28:03 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 14:14:06 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 18:02:19 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "ftl.h"
 #include <time.h>
+#include "ftl.h"
 
-void     jump(t_matrix *matrix)
+void            jump(t_matrix *matrix)
 {
-  int    random;
-  
+  int           random;
+
   if (matrix->alien != NULL)
     my_putstr("Time-Space Hyper-Jump disabled. Start attacking you woos!\n");
   else if (matrix->ship->ftl_drive->system_state == NULL)
@@ -39,19 +39,18 @@ void     jump(t_matrix *matrix)
     }
 }
 
-int        random_number()
+int             random_number()
 {
-  int      random;
+  int           random;
 
   random = (rand()% 100) + 1;
   return (random);
 }
 
-
-t_freight   *create_freight()
+t_freight       *create_freight()
 {
-  int       random;
-  t_freight *freight;
+  int           random;
+  t_freight	*freight;
 
   freight = malloc(sizeof(t_freight));
   if ((random = random_number()) <= 70)
@@ -67,9 +66,9 @@ t_freight   *create_freight()
   return (freight);
 }
 
-void        detect(t_matrix *matrix)
+void            detect(t_matrix *matrix)
 {
-  int       i;
+  int           i;
 
   i = 0;
   if (matrix->alien != NULL)
@@ -94,32 +93,16 @@ void        detect(t_matrix *matrix)
     }
 }
 
-t_alien     *create_alien(t_matrix *matrix)
+t_alien         *create_alien(t_matrix *matrix)
 {
-  t_alien   *alien;
+  t_alien       *alien;
 
   alien = malloc(sizeof(t_alien));
   if (alien == NULL)
     {
       my_putstr("Error detecting hostile life forms\n");
-      return(NULL);
+      return (NULL);
     }
-  matrix->alien = alien;
-  if (matrix->nb_alien == 0)
-    {
-      alien->life = 20;
-      alien->damage = 10;
-      matrix->nb_alien = matrix->nb_alien + 1;
-    }
-  else
-    {
-      alien->life = (matrix->temp_life * 1.5);
-      alien->damage = (matrix->temp_damage * 1.5);
-      matrix->temp_life = alien->life;
-      matrix->temp_damage = alien->damage;
-    }
-  my_putstr("ALLERT! CODE RED! Hostile life form detected!\nAll systems");
-  my_putstr(" disabled! Engaging attack mode!\n");
-  my_putstr("A meanie alien has appeared!!!!!\n");
+  prob_alien(matrix, alien);
   return (alien);
 }

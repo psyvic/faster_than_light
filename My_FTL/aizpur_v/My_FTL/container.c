@@ -5,13 +5,13 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 19:40:35 2017 AIZPURUA Victor Hugo
-** Last update Thu Apr 13 20:35:13 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 18:17:45 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
 #include<unistd.h>
-#include "ftl.h"
 #include <time.h>
+#include "ftl.h"
 
 int              add_container_to_ship(t_ship *ship)
 {
@@ -34,17 +34,14 @@ int              add_container_to_ship(t_ship *ship)
 
 void             add_freight_to_container(t_ship *ship, t_freight *freight)
 {
-  my_putstr("Adding freight to container...\n");
   if ((ship->container->first == NULL) && (ship->container->last == NULL))
     {
-      my_putstr("There was nothing in the container, now you have 1 freight\n");
       ship->container->first = freight;
       ship->container->last = freight;
       freight->next = NULL;
     }
   else
     {
-      my_putstr("Now you 1 more freight in the container\n");
       freight->next = ship->container->first;
       ship->container->first->prev = freight;
       ship->container->first = freight;
@@ -55,33 +52,9 @@ void             add_freight_to_container(t_ship *ship, t_freight *freight)
 
 void             del_freight_to_container(t_ship *ship, t_freight *freight)
 {
-  my_putstr("Deleting freight from container...\n");
   if ((ship->container->first != NULL) && (ship->container->last != NULL))
     {
-      if (ship->container->first == freight && ship->container->last != freight)
-	{
-	  my_putstr("Deleting the first freight from container...\n");
-	  freight->next->prev = NULL;
-	  ship->container->first = freight->next;
-	}
-      else if (ship->container->last == freight && ship->container->first != freight)
-	{
-	  my_putstr("Deleting last freight from container...\n");
-	  freight->prev->next = NULL;
-	  ship->container->last = freight->prev;
-	}
-      else if ((ship->container->first == freight) && (ship->container->last == freight))
-	{
-	  my_putstr("Deleting the only existing freight from container...\n");
-	  ship->container->first = NULL;
-	  ship->container->last = NULL;
-	}
-      else
-	{
-	  my_putstr("Deleting a random freight from container...\n");
-	  freight->next->prev = freight->prev;
-	  freight->prev->next = freight->next;
-	}
+      del_prob(ship, freight);
       free(freight);
       ship->container->nb_elem = ship->container->nb_elem - 1;
     }
@@ -89,9 +62,9 @@ void             del_freight_to_container(t_ship *ship, t_freight *freight)
 
 void             get_bonus(t_ship *ship)
 {
-  t_freight *temp;
+  t_freight      *temp;
 
-  my_putstr("Applying bonuses\n");
+  my_putstr("Applying bonuses from remnants\n");
   temp = ship->container->first;
   while (temp != NULL)
     {

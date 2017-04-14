@@ -5,18 +5,18 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 21:58:01 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 14:22:39 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 18:23:00 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "ftl.h"
 #include <time.h>
+#include "ftl.h"
 
 void    attack(t_matrix *matrix)
 {
   int   random;
-  
+
   if (matrix->alien == NULL)
     my_putstr("Theres no one to attack you silly billy!\n");
   else if (matrix->ship->weapon->system_state == NULL)
@@ -29,7 +29,8 @@ void    attack(t_matrix *matrix)
       my_putstr(" points of damage!\n");
       if (matrix->alien->life <= 0)
 	delete_alien(matrix);
-      else if ((random = random_number()) <= matrix->ship->navigation_tools->evade)
+      else if ((random = random_number()) <=
+	       matrix->ship->navigation_tools->evade)
 	my_putstr("The meanie tries to attack you but he misses!\n");
       else
 	{
@@ -46,35 +47,15 @@ void    attack(t_matrix *matrix)
 void    system_break(t_matrix *matrix)
 {
   int   random;
-  
-  if ((random = random_number()) <= 100)
-    {
-      if ((random = random_number_three()) == 1)
-	{
-	  my_putstr("Critical error! The weapon system has been damaged!\n");
-	  free (matrix->ship->weapon->system_state);
-	  matrix->ship->weapon->system_state = NULL;
-	}
-      else if (random == 2)
-	{
-	  my_putstr("Critical error! The navigation tools system");
-	  my_putstr(" has been damaged!\n");
-	  free (matrix->ship->navigation_tools->system_state);
-	  matrix->ship->navigation_tools->system_state = NULL;
-	}
-      else
-	{
-	  my_putstr("Critical error! The reactor system has been damaged!\n");
-	  free (matrix->ship->ftl_drive->system_state);
-	  matrix->ship->ftl_drive->system_state = NULL;
-	}
-    }
+
+  if ((random = random_number()) <= 20)
+    random_break(matrix);
 }
 
 void    delete_alien(t_matrix *matrix)
 {
   int   random;
-  
+
   my_putstr("The enemy has been defeated!!! Disengaging attack mode\n");
   my_putstr("Restoring all systems\n");
   matrix->alien = NULL;

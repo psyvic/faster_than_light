@@ -5,15 +5,15 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 14:31:14 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 14:27:17 2017 AIZPURUA Victor Hugo
+** Last update Fri Apr 14 18:23:38 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "ftl.h"
 #include <time.h>
+#include "ftl.h"
 
-static const t_demand g_demand[] = {
+static const t_demand	g_demand[] = {
   {"attack", &attack},
   {"detect", &detect},
   {"jump", &jump},
@@ -25,18 +25,18 @@ static const t_demand g_demand[] = {
   {NULL, NULL}
 };
 
-void    check_systems(t_matrix *matrix)
+void         check_systems(t_matrix *matrix)
 {
   system_control(matrix->ship);
 }
 
-void    system_repair_main(t_matrix *matrix)
+void	     system_repair_main(t_matrix *matrix)
 {
   my_putstr("Entering the System Repair Unit(SRU):\n");
   system_repair(matrix->ship);
 }
 
-void    get_bonus_main(t_matrix *matrix)
+void	     get_bonus_main(t_matrix *matrix)
 {
   if (matrix->alien != NULL)
     my_putstr("Get bonus disabled. Start attacking you woos!\n");
@@ -46,7 +46,7 @@ void    get_bonus_main(t_matrix *matrix)
     get_bonus(matrix->ship);
 }
 
-void    check_stats(t_matrix *matrix)
+void         check_stats(t_matrix *matrix)
 {
   if (matrix->alien != NULL)
     my_putstr("Stat checks disabled. Start attacking you woos!\n");
