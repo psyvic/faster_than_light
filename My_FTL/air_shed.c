@@ -5,13 +5,13 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 10:00:18 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 21:33:33 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 01:33:37 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "ftl.h"
 #include <time.h>
+#include "ftl.h"
 
 t_matrix                 *create_matrix()
 {
@@ -58,7 +58,7 @@ t_ship                 *create_ship(t_matrix *matrix)
 int                    add_weapon_to_ship(t_ship *ship)
 {
   t_weapon             *weapon;
-  
+
   my_putstr("Adding weapons");
   suspense();
   weapon = malloc(sizeof(t_weapon));
