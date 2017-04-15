@@ -4,7 +4,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Mar 24 09:25:33 2017 AIZPURUA Victor Hugo
-** Last update Sat Mar 25 09:34:03 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 11:13:03 2017 AIZPURUA Victor Hugo
 */
 
 void    my_putchar(char c);
@@ -35,7 +35,7 @@ int	my_nb_len(int n)
     }
   else
     num_chiffres = 1;
-  return (num_chiffres);  
+  return (num_chiffres);
 }
 
 void	my_put_nbr(int n)
@@ -64,5 +64,5 @@ void	my_put_nbr(int n)
       my_putchar('0' + temp);
       index = index - 1;
       puissance = puissance / 10;
-    }	
+    }
 }
