@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 14:31:14 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr 15 10:49:42 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 11:38:00 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -69,13 +69,11 @@ void         check_stats(t_matrix *matrix)
 void         system_command(t_matrix *matrix)
 {
   char       *command;
-  int        i;
   int        bool;
 
   bool = 0;
   while (bool == 0)
     {
-      i = 0;
       my_putstr("System_command~> ");
       command = readline();
       if (command == NULL)
@@ -83,7 +81,8 @@ void         system_command(t_matrix *matrix)
       else if (my_strcmp(command, "exit") == 0)
 	bool = 1;
       else
-	{
+	system_command_cont(matrix, command);
+	/*	{
 	  while (g_demand[i].ordre != NULL)
 	    {
 	      if (my_strcmp(command, g_demand[i].ordre) == 0)
@@ -95,7 +94,28 @@ void         system_command(t_matrix *matrix)
 	    }
 	  if (bool == 0)
 	    my_putstr("[SYSTEM_FAILURE] Unknown command! \n");
-	}
+	    }*/
       free(command);
     }
 }
+
+void         system_command_cont(t_matrix *matrix, char *command)
+{
+  int        bool;
+  int        i;
+
+  i = 0;
+  bool = 0;
+  while (g_demand[i].ordre != NULL)
+    {
+      if (my_strcmp(command, g_demand[i].ordre) == 0)
+	{
+	  g_demand[i].f(matrix);
+	  bool = 1;
+	}
+      i = i + 1;
+    }
+  if (bool == 0)
+    my_putstr("[SYSTEM_FAILURE] Unknown command! \n");
+}
+
