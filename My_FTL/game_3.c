@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 21:58:01 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr 15 09:49:01 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 11:04:14 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -15,36 +15,39 @@
 
 void    attack(t_matrix *matrix)
 {
-  int   random;
-
   if (matrix->alien == NULL)
     my_putstr("Theres no one to attack you silly billy!\n");
   else if (matrix->ship->weapon->system_state == NULL)
     my_putstr("\033[33mWeapon system damaged! Need reparation\033[0m!\n");
   else
+    attack_cont(matrix);
+}
+/*
+void    attack_cont(t_matrix *matrix)
+{
+  int   random;
+
+  my_putstr("\033[32mAttacking the big old meanie! You hit him for ");
+  my_put_nbr(matrix->ship->weapon->damage);
+  matrix->alien->life = matrix->alien->life - matrix->ship->weapon->damage;
+  my_putstr(" points of damage!\n\033[0m");
+  sleep(2);
+  if (matrix->alien->life <= 0)
+    delete_alien(matrix);
+  else if ((random = random_number()) <=
+	   matrix->ship->navigation_tools->evade)
+    my_putstr("\033[34mThe meanie attacks you but misses!\n\033[0m");
+  else
     {
-      my_putstr("\033[32mAttacking the big old meanie! You hit him for ");
-      my_put_nbr(matrix->ship->weapon->damage);
-      matrix->alien->life = matrix->alien->life - matrix->ship->weapon->damage;
+      my_putstr("\033[31mNow the meanie attacks you for ");
+      my_put_nbr(matrix->alien->damage);
+      matrix->ship->hull = matrix->ship->hull - matrix->alien->damage;
       my_putstr(" points of damage!\n\033[0m");
       sleep(2);
-      if (matrix->alien->life <= 0)
-	delete_alien(matrix);
-      else if ((random = random_number()) <=
-	       matrix->ship->navigation_tools->evade)
-	my_putstr("\033[34mThe meanie attacks you but misses!\n\033[0m");
-      else
-	{
-	  my_putstr("\033[31mNow the meanie attacks you for ");
-	  my_put_nbr(matrix->alien->damage);
-	  matrix->ship->hull = matrix->ship->hull - matrix->alien->damage;
-	  my_putstr(" points of damage!\n\033[0m");
-	  sleep(2);
-	  system_break(matrix);
-	  endgame(matrix);
-	}
+      system_break(matrix);
+      endgame(matrix);
     }
-}
+}*/
 
 void    system_break(t_matrix *matrix)
 {

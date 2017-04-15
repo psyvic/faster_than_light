@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Apr 14 23:55:38 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr 15 01:34:29 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 11:04:01 2017 AIZPURUA Victor Hugo
 */
 
 #include <unistd.h>
@@ -64,4 +64,30 @@ int     space(int i)
   my_putstr("\033[33m   ");
   i = i + 1;
   return (i);
+}
+
+void    attack_cont(t_matrix *matrix)
+{
+  int   random;
+
+  my_putstr("\033[32mAttacking the big old meanie! You hit him for ");
+  my_put_nbr(matrix->ship->weapon->damage);
+  matrix->alien->life = matrix->alien->life - matrix->ship->weapon->damage;
+  my_putstr(" points of damage!\n\033[0m");
+  sleep(2);
+  if (matrix->alien->life <= 0)
+    delete_alien(matrix);
+  else if ((random = random_number()) <=
+	   matrix->ship->navigation_tools->evade)
+    my_putstr("\033[34mThe meanie attacks you but misses!\n\033[0m");
+  else
+    {
+      my_putstr("\033[31mNow the meanie attacks you for ");
+      my_put_nbr(matrix->alien->damage);
+      matrix->ship->hull = matrix->ship->hull - matrix->alien->damage;
+      my_putstr(" points of damage!\n\033[0m");
+      sleep(2);
+      system_break(matrix);
+      endgame(matrix);
+    }
 }
