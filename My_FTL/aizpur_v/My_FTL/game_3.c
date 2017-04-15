@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 21:58:01 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr 15 01:34:57 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 09:49:01 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -81,6 +81,7 @@ void   endgame(t_matrix *matrix)
 {
   if (matrix->ship->hull <= 0)
     {
+      matrix->quit = 1;
       my_putstr("\033[31m");
       my_putstr("Your ship was destroyed! You are a shame to the galaxy!\n");
       my_putstr("The aliens devoured the human race! Have fun in HELL!\n");
@@ -88,6 +89,7 @@ void   endgame(t_matrix *matrix)
     }
   else if (matrix->ship->navigation_tools->sector == 10)
     {
+      matrix->quit = 1;
       my_putstr("\033[34m");
       my_putstr("You have reached sector 10 safe and sound! You rock!\n");
       my_putstr("You saved mankind! Go have a beer and get laid!\n");
