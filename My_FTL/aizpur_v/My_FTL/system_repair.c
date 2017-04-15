@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 11 12:27:12 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr 15 11:29:45 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 11:32:05 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -72,7 +72,7 @@ void         system_repair(t_ship *ship)
       free(command);
     }
 }
-/*
+
 void         system_repair_cont(t_ship *ship, char *command)
 {
   int        bool;
@@ -91,8 +91,8 @@ void         system_repair_cont(t_ship *ship, char *command)
     }
   if (bool == 0)
     my_putstr("[SYSTEM_FAILURE] Unknown command! \n");
-    }*/
-
+}
+/*
 char         *readline(void)
 {
   ssize_t    ret;
@@ -108,3 +108,4 @@ char         *readline(void)
   free(buff);
   return (NULL);
 }
+*/
