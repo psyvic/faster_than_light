@@ -5,7 +5,7 @@
 ## Login   <aizpur_v@etna-alternance.net>
 ## 
 ## Started on  Sat Apr  1 07:46:15 2017 AIZPURUA Victor Hugo
-## Last update Fri Apr 14 23:56:03 2017 AIZPURUA Victor Hugo
+## Last update Sat Apr 15 09:13:19 2017 AIZPURUA Victor Hugo
 ##
 
 CC =            gcc
@@ -30,6 +30,7 @@ RM =            rm -f
 
 
 $(NAME):        $(OBJ)
+		make -C libmy_01
 		$(CC) $(OBJ) -o $(NAME) $(CFLAGS) -lmy
 debug:          $(OBJ)
 		$(CC) -g $(OBJ) -o $(NAME) $(CFLAGS)
