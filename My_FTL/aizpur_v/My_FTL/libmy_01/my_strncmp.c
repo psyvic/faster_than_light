@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Mar 23 22:56:25 2017 AIZPURUA Victor Hugo
-** Last update Sun Mar 26 20:00:37 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 11:11:08 2017 AIZPURUA Victor Hugo
 */
 
 int  my_strncmp(char *s1, char *s2, int n)
@@ -19,11 +19,11 @@ int  my_strncmp(char *s1, char *s2, int n)
 	  return (1);
       else if (*s1 < *s2)
 	  return (-1);
-      else if ((*s1 == *s2) && (*s1 == '\0') && (*s2 == '\0')) 
+      else if ((*s1 == *s2) && (*s1 == '\0') && (*s2 == '\0'))
 	  return (0);
       s1 = s1 + 1;
       s2 = s2 + 1;
       i = i + 1;
     }
-  return (*s1 - *s2);  
+  return (*s1 - *s2);
 }

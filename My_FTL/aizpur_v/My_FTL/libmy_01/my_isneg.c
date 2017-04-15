@@ -5,8 +5,9 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Mar 20 19:43:34 2017 AIZPURUA Victor Hugo
-** Last update Mon Mar 20 19:44:11 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 11:13:37 2017 AIZPURUA Victor Hugo
 */
+
 char	my_isneg(int n)
 {
   if (n  < 0)
