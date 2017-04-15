@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Thu Apr 13 14:31:14 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 20:32:34 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 10:49:42 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdlib.h>
@@ -30,7 +30,7 @@ void         check_systems(t_matrix *matrix)
   system_control(matrix->ship);
 }
 
-void	     system_repair_main(t_matrix *matrix)
+void    system_repair_main(t_matrix *matrix)
 {
   my_putstr("Entering the System Repair Unit(SRU):\n");
   system_repair(matrix->ship);

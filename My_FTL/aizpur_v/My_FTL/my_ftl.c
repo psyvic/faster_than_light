@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 10:45:31 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr 15 01:47:12 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 09:57:30 2017 AIZPURUA Victor Hugo
 */
 
 #include <unistd.h>
@@ -23,8 +23,7 @@ int     main()
   sleep(2);
   matrix = create_matrix();
   sleep(4);
-  while (((matrix->ship->hull > 0 && matrix->ship->ftl_drive->energy > 0) ||
-	 matrix->ship->navigation_tools->sector < 10) && matrix->quit != 1)
+  while (matrix->quit != 1)
     {
       my_putstr("\033[H\033[2J");
       interface(matrix);
