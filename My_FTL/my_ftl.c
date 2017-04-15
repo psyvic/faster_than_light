@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 10 10:45:31 2017 AIZPURUA Victor Hugo
-** Last update Fri Apr 14 21:42:06 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr 15 01:47:12 2017 AIZPURUA Victor Hugo
 */
 
 #include <unistd.h>
@@ -29,7 +29,7 @@ int     main()
       my_putstr("\033[H\033[2J");
       interface(matrix);
       system_command(matrix);
-      sleep(2);
+      sleep(3);
     }
   the_end();
   return (0);
